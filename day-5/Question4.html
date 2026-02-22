@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile Manager</title>
+</head>
+<body>
+
+    <!-- Display Area -->
+    <div id="studentProfile"></div>
+
+    <!-- Buttons -->
+    <button id="showProfileBtn">Show Profile</button>
+    <button id="updateMarksBtn">Update Marks</button>
+
+    <script>
+        // Global student object
+        var student = {
+            name: "Rahul",
+            rollNo: 101,
+            marks: 85
+        };
+
+        // Function to display student details
+        function updateStudentProfile(studentObj) {
+            var profileDiv = document.getElementById("studentProfile");
+            profileDiv.innerHTML =
+                "<p>Name: " + studentObj.name + "</p>" +
+                "<p>Roll No: " + studentObj.rollNo + "</p>" +
+                "<p>Marks: " + studentObj.marks + "</p>";
+        }
+
+        // Function to update marks and refresh display
+        function updateMarks(newMarks) {
+            student.marks = newMarks;
+            updateStudentProfile(student);
+        }
+
+        // Event listeners
+        document.getElementById("showProfileBtn").addEventListener("click", function() {
+            updateStudentProfile(student);
+        });
+
+        document.getElementById("updateMarksBtn").addEventListener("click", function() {
+            updateMarks(95);
+        });
+    </script>
+
+</body>
+</html>
