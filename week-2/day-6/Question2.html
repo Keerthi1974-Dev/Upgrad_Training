@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Live Form Validation</title>
+</head>
+
+<body>
+
+    <h3>Registration Form</h3>
+    <hr/>
+
+    Name :
+    <input type="text" id="name" onchange="validateName()" />
+    <span id="name"></span>
+    <br/><br/>
+
+    Email :
+    <input type="text" id="email" onchange="validateEmail()" />
+    <span id="email"></span>
+    <br/><br/>
+
+    Age :
+    <input type="number" id="age" onchange="validateAge()" />
+    <span id="age"></span>
+    <br/><br/>
+
+    <input type="button" value="Register" onclick="registerUser()" />
+    <br/><br/>
+
+    <div id="finalMessage"></div>
+
+    <script>
+
+        function validateName()
+        {
+            var name = document.getElementById("name").value;
+            if(name === "") {
+                document.getElementById("name").innerText = "Name cannot be empty";
+                alert("Name cannot be empty");
+            }
+            else {
+                document.getElementById("name").innerText = "";
+                alert("Name is valid");
+            }
+        }
+
+        function validateEmail()
+        {
+            var email = document.getElementById("email").value;
+            if(email.indexOf("@") === -1) {
+                document.getElementById("email").innerText = "Email must contain @";
+                alert("Invalid Email! Email must contain @");
+            }
+            else {
+                document.getElementById("email").innerText = "";
+                alert("Email is valid");
+            }
+        }
+
+        function validateAge()
+        {
+            var age = document.getElementById("age").value;
+            if(age <= 18) {
+                document.getElementById("age").innerText = "Age must be greater than 18";
+                alert("Age must be greater than 18");
+            }
+            else {
+                document.getElementById("age").innerText = "";
+                alert("Age is valid");
+            }
+        }
+
+        function registerUser()
+        {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+
+            if(name !== "" && email.indexOf("@") !== -1 && age > 18)
+            {
+                sessionStorage.setItem("userName", name);
+                sessionStorage.setItem("userEmail", email);
+                sessionStorage.setItem("userAge", age);
+
+                document.getElementById("finalMessage").innerText = "User Registered Successfully";
+                alert("User Registered Successfully!");
+            }
+            else
+            {
+                document.getElementById("finalMessage").innerText = "Please fix validation errors";
+                alert("Please fix validation errors before registering!");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

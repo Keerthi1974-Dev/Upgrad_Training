@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Personal Notes Saver</title>
+</head>
+
+<body onload="loadNote()">
+
+    <h3>Personal Notes Saver (Session Storage)</h3>
+    <hr/>
+
+    <textarea id="note" rows="8" cols="40"></textarea>
+    <br/><br/>
+
+    <input type="button" value="Save" onclick="saveNote()" />
+    <input type="button" value="Clear" onclick="clearNote()" />
+
+    <script>
+
+        function loadNote()
+        {
+            var savedNote = sessionStorage.getItem("dailyNote");
+
+            if(savedNote !== null)
+            {
+                document.getElementById("note").value = savedNote;
+                alert(" Note loaded from session storage!");
+            }
+        }
+
+        function saveNote()
+        {
+            var note = document.getElementById("note").value;
+            sessionStorage.setItem("dailyNote", note);
+            alert("Note saved in session storage!");
+        }
+
+        function clearNote()
+        {
+            sessionStorage.removeItem("dailyNote");
+            document.getElementById("note").value = "";
+            alert("Note cleared from session storage!");
+        }
+
+    </script>
+
+</body>
+</html>
