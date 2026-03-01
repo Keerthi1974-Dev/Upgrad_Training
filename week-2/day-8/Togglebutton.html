@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Toggle</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Blog Page</h2>
+    <p>This is a demo for light and dark theme.</p>
+
+    <button id="themeBtn">Toggle Theme</button>
+
+    <script>
+        var btn = document.getElementById("themeBtn");
+        var body = document.body;
+
+        
+        var savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            body.className = savedTheme;
+        } else {
+            body.className = "light-mode";
+        }
+
+      
+        btn.addEventListener("click", function() {
+
+            if (body.className === "light-mode") {
+                body.className = "dark-mode";
+                localStorage.setItem("theme", "dark-mode");
+            } else {
+                body.className = "light-mode";
+                localStorage.setItem("theme", "light-mode");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

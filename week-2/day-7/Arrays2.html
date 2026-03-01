@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Cart Summary</title>
+</head>
+<body>
+
+<script>
+
+    
+    const products = [
+        { name: "Laptop", price: 50000, quantity: 1 },
+        { name: "Mouse", price: 500, quantity: 2 },
+        { name: "Keyboard", price: 1500, quantity: 1 }
+    ];
+
+    let totalAmount = 0;
+
+    console.log("========= INVOICE =========");
+
+   
+    for (let i = 0; i < products.length; i++) {
+
+        let product = products[i];
+
+        let subtotal = product.price * product.quantity;
+
+        totalAmount = totalAmount + subtotal;
+
+        console.log("Product Name : " + product.name);
+        console.log("Price        : " + product.price);
+        console.log("Quantity     : " + product.quantity);
+        console.log("Subtotal     : " + subtotal);
+        console.log("-----------------------------");
+    }
+
+    console.log("Total Cart Value: " + totalAmount);
+
+</script>
+
+</body>
+</html>
