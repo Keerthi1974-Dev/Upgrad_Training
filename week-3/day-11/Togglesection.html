@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Section</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
+</head>
+
+<body>
+
+<h3>Frequently Asked Questions</h3>
+<hr>
+
+<div class="faq">
+    <div class="question">1. What courses do you offer?</div>
+    <div class="answer">We offer full stack .Net with Angular.</div>
+
+    <div class="question">2. What is the course duration?</div>
+    <div class="answer">Course duration ranges from 3 months.</div>
+
+    <div class="question">3. Do you provide certificates?</div>
+    <div class="answer">Yes, certificates are provided if you complete Successfully. .</div>
+
+    <div class="question">4. Is there placement support?</div>
+    <div class="answer">Yes, we provide placement assistance and interview training.</div>
+
+    <div class="question">5. Is there stipend provided?</div>
+    <div class="answer">No, Stipend not provided for online Training</div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    $(".question").click(function(){
+    
+    $(".answer").hide();
+       $(this).next(".answer").slideToggle(1000);
+
+    });
+
+});
+</script>
+
+</body>
+</html>
