@@ -1,0 +1,56 @@
+﻿namespace ConsoleApp8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.Write("Enter First Value: ");
+            int A = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Second Value: ");
+            int B = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Operator (+, -, *, /): ");
+            char op = char.Parse(Console.ReadLine());
+
+            int C = 0;
+
+            switch (op)
+            {
+                case '+':
+                    C = A + B;
+                    Console.WriteLine("Result: " + C);
+                    break;
+
+                case '-':
+                    C = A - B;
+                    Console.WriteLine("Result: " + C);
+                    break;
+
+                case '*':
+                    C = A * B;
+                    Console.WriteLine("Result: " + C);
+                    break;
+
+                case '/':
+                    if (B == 0)
+                    {
+                        Console.WriteLine("Division by zero is not allowed!.");
+                    }
+                    else
+                    {
+                        C = A / B;
+                        Console.WriteLine("Result: " + C);
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Operator");
+                    break;
+            }
+        }
+
+
+            }
+}

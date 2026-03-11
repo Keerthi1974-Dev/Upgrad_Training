@@ -1,3 +1,9 @@
 <Solution>
+  <Folder Name="/Week-4/" />
+  <Folder Name="/Week-4/Day-18/">
+    <File Path="../ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj" />
+    <File Path="../ConsoleApp8/ConsoleApp8/Program.cs" />
+    <File Path="GradeCalculator.cs" />
+  </Folder>
   <Project Path="ConsoleApp7/ConsoleApp7.csproj" />
 </Solution>
