@@ -1,0 +1,97 @@
+﻿using System;
+
+
+namespace ConsoleApp13
+{
+    internal class Program
+    {
+        
+            static void Greeting()
+            {
+                Console.WriteLine("Welcome to C# Methods");
+            }
+
+            static void Greeting(string uname)
+            {
+                Console.WriteLine($"Hi {uname}, Good morning...!");
+            }
+
+            static int GetSum(int x, int y)
+            {
+                int z = x + y;
+                return z;
+            }
+
+
+            static string GetCurrentTime()
+            {
+                string str = DateTime.Now.ToString("T");
+                return str;
+            }
+
+        static void Main(string[] args)
+        {
+
+            Greeting();
+            Greeting();
+            Console.WriteLine("---------------------------");
+
+            Greeting("Keerthi");
+            Greeting("niCKY");
+            Console.WriteLine("---------------------------");
+
+            Console.WriteLine("Sum Result : " + GetSum(10, 20));
+            Console.WriteLine("Sum Result : " + GetSum(402, 503));
+
+            Console.WriteLine("---------------------------");
+
+            Console.WriteLine("Current Time : " + GetCurrentTime());
+
+            Console.ReadLine();
+
+            // main method for vowels count 
+
+            {
+
+                Console.Write("Enter a word: ");
+                string text = Console.ReadLine();
+
+                int count = VowelsCount.CountVowels(text);
+
+                Console.WriteLine("Vowel count: " + count);
+            }
+           // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            // method for Assignment
+            {
+
+                Console.WriteLine("Enter Product Id: ");
+                int id = int.Parse(Console.ReadLine());
+
+                ProductDetails p = new ProductDetails(id);
+
+                Console.WriteLine("Enter Product Name: ");
+                p.ProductName = Console.ReadLine();
+
+                Console.WriteLine("Enter Unit Price: ");
+                p.UnitPrice = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter Quantity: ");
+                p.Quantity = int.Parse(Console.ReadLine());
+
+                p.ShowDetails();
+
+
+
+            } }
+        }
+    }
+
+// -------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

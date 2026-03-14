@@ -1,0 +1,40 @@
+﻿namespace ConsoleApp12
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter Salary: ");
+            double salary = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter Experience: ");
+            int exp = int.Parse(Console.ReadLine());
+
+             Class1.Run();
+
+            double bonus = 0;
+
+            if (exp < 2)
+            {
+                bonus = salary * 0.05;
+            }
+            else if (exp <= 5)
+            {
+                bonus = salary * 0.10;
+            }
+            else
+            {
+                bonus = salary * 0.15;
+            }
+
+            double finalSalary = salary + bonus;
+
+            Console.WriteLine("Employee: " + name);
+            Console.WriteLine("Bonus: " + bonus);
+            Console.WriteLine("Final Salary: " + finalSalary);
+        }
+    }
+}

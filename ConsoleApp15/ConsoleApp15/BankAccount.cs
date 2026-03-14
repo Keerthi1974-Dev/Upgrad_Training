@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp15
+{
+    internal class BankAccount
+    {
+
+        
+        private decimal _balance;
+        private string _accountNumber;
+        private string _accountHolder;
+
+        public decimal Balance
+        {
+            get
+            {
+                return _balance;
+            }
+        }
+
+        public string AccountNumber
+        {
+            get
+            {
+                return _accountNumber;
+            }
+        }
+
+        public string AccountHolder
+        {
+            get { return _accountHolder; }
+            set
+            {
+
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Account Holder Name cannot be empty");
+                }
+
+                _accountHolder = value;
+            }
+        }
+
+
+        public BankAccount(string accountNumber, string accountHolder, decimal balance = 0)
+        {
+
+            if (string.IsNullOrEmpty(accountNumber))
+            {
+                throw new ArgumentNullException("Account Number cannot be empty!");
+            }
+
+            if (string.IsNullOrEmpty(accountHolder))
+            {
+                throw new ArgumentNullException("Account Holder Name cannot be empty!");
+            }
+
+            if (balance < 0)
+            {
+                throw new ArgumentOutOfRangeException("Balance cannot be negative!");
+            }
+
+
+            _accountNumber = accountNumber;
+            _accountHolder = accountHolder;
+            _balance = balance;
+        }
+
+
+
+        public void Deposit(decimal amount)
+        {
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException("Amount cannot be negative!");
+            }
+
+            _balance += amount;
+
+            Console.WriteLine($"Dear user your A/C XXXX deposited with .....00 on 13-03-2026 and your Updated Balance : INR.{_balance.ToString("F2")}");
+
+        }
+
+
+        public bool Withdraw(decimal amount)
+        {
+            if (amount <= 0)
+            {
+                Console.WriteLine("Amount cannot be zero or lessthan zero");
+                return false;
+            }
+
+            if (amount > _balance)
+            {
+                Console.WriteLine("Insufficient Balance!!");
+                return false;
+            }
+
+            _balance -= amount;
+
+            Console.WriteLine($"Dear User A/C XXXX debited by ......00 on date 13-03-2026 and your Updated Balance. INR.{_balance.ToString("F2")}");
+
+            return true;
+
+
+        }
+
+        }
+}

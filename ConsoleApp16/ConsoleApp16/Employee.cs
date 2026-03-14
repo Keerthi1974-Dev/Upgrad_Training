@@ -1,0 +1,116 @@
+﻿using System;
+
+namespace ConsoleApp16
+{
+    internal class Employee
+    {
+        private string _fullName;
+        private int _age;
+        private decimal _salary;
+        private int _employeeId;
+
+        public string FullName
+        {
+            get
+            {
+                return _fullName;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Employee name cannot be empty!");
+                }
+
+                _fullName = value.Trim();
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                if (value < 18 || value > 80)
+                {
+                    throw new ArgumentOutOfRangeException("Age must be between 18 and 80");
+                }
+
+                _age = value;
+            }
+        }
+
+        public decimal Salary
+        {
+            get
+            {
+                return _salary;
+            }
+            private set
+            {
+                if (value < 1000)
+                {
+                    throw new ArgumentOutOfRangeException("Salary cannot be less than 1000");
+                }
+
+                _salary = value;
+            }
+        }
+
+        public int EmployeeId
+        {
+            get
+            {
+                return _employeeId;
+            }
+        }
+
+        public Employee(int employeeId, string fullName, decimal salary, int age)
+        {
+            _employeeId = employeeId;
+            FullName = fullName;
+            Salary = salary;
+            Age = age;
+        }
+
+
+        public void GiveRaise(decimal percentage)
+        {
+            if (percentage <= 0 || percentage > 30)
+            {
+                throw new ArgumentException("percentage in between 0 and 30");
+            }
+
+            decimal IncreasedAmount = _salary * percentage / 100;
+
+            _salary += IncreasedAmount;
+
+            Console.WriteLine("Salary increased successfully!!...Your Updated Salary: " + _salary);
+        }
+
+
+        public bool DeductPenalty(decimal amount)
+        {
+            if (amount <= 0)
+            {
+                Console.WriteLine("Amount cannot be Negative Value");
+                return false;
+            }
+
+            if ((_salary - amount) < 1000)
+            {
+                Console.WriteLine("Minimum salary is 1000");
+                return false;
+            }
+
+            _salary -= amount;
+
+            Console.WriteLine("Penalty deducted..;)... Your  Updated Salary: " + _salary);
+
+            return true;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp13
+{
+    internal class VowelsCount
+    {
+
+        public static int CountVowels(string text)
+        {
+            int count = 0;
+
+            foreach (char c in text)
+            {
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+                    c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+    }
+}
