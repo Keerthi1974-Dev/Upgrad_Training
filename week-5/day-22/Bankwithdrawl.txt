@@ -1,0 +1,61 @@
+using System;
+
+public class InsufficientBalanceException : Exception
+{
+    public InsufficientBalanceException(string message) : base(message)
+    {
+    }
+}
+
+class BankAccount
+{
+    private double balance;
+
+    public BankAccount(double initialBalance)
+    {
+        balance = initialBalance;
+    }
+
+    public void Withdraw(double amount)
+    {
+        if (amount > balance)
+        {
+            
+            throw new InsufficientBalanceException("Withdrawal amount exceeds available balance");
+        }
+
+        balance -= amount;
+        Console.WriteLine("Withdrawal successful. Remaining balance: " + balance);
+    }
+}
+
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter Balance: ");
+        double balance = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter Withdrawal Amount: ");
+        double amount = Convert.ToDouble(Console.ReadLine());
+
+        BankAccount account = new BankAccount(balance);
+
+        try
+        {
+            account.Withdraw(amount);
+        }
+        catch (InsufficientBalanceException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("Transaction completed.");
+        }
+
+        // Program continues
+        Console.WriteLine("Program is still running...");
+    }
+}
