@@ -1,0 +1,99 @@
+<html>
+
+<head></head>
+
+<body>
+	<h3>JavaScript Programming -- DOM Traversing </h3>
+	<hr />
+
+    <h2>Cities List</h2>
+
+	<input type="button" value="By TagName" onclick="fn_byTag()" />
+	<input type="button" value="By Class Name" onclick="fn_byClass()" />
+	<input type="button" value="By Query - Single" onclick="fn_byQuery()" />
+	<input type="button" value="By Query - Multiple" onclick="fn_byQueryAll()" />
+    <input type="button" value="Adding New Element" onclick="fn_addNewElement()"/>
+    <input type="button" value="Removing Element" onclick="fn_RemoveElement()"/>
+
+	<br /><br />
+
+	<div id="div1" style="border:2px solid blue; padding : 10px; ">
+		<p id="p1">This page demonstrate to access html elements using JavaScript.</p>
+		<p class="c1">This page demonstrate to access html elements using JavaScript.</p>
+		<p>This page demonstrate to access html elements using JavaScript.</p>
+		<p>This page demonstrate to access html elements using JavaScript.</p>
+		<p class="c1">This page demonstrate to access html elements using JavaScript.</p>
+		<p>This page demonstrate to access html elements using JavaScript.</p>
+		<p class="c1">This page demonstrate to access html elements using JavaScript.</p>
+	</div>
+
+	<hr />
+
+	<p>This page demonstrate to access html elements using JavaScript.</p>
+	<p class="c1">This page demonstrate to access html elements using JavaScript.</p>
+	<p>This page demonstrate to access html elements using JavaScript.</p>
+
+    <ul id="citiesList"></ul>
+
+	<script>
+
+		function fn_byTag() {
+			let paraObjArray = document.getElementsByTagName("p");
+
+			for (let paraObj of paraObjArray) {
+				paraObj.style.backgroundColor = "red";
+			}
+		}
+
+		function fn_byClass() {
+			let paraObjArray = document.getElementsByClassName("c1");
+
+			for (let paraObj of paraObjArray) {
+				paraObj.style.backgroundColor = "pink";
+			}
+		}
+
+        function fn_byQuery() {
+			var paraObj = document.querySelector("div p");
+			paraObj.style.backgroundColor = "green";
+		}
+
+		function fn_byQueryAll() {
+			var paraObjArray = document.querySelectorAll("div p");
+
+			for (let i = 0; i < paraObjArray.length; i++) {
+				paraObjArray[i].style.backgroundColor = "deeppink";
+			}
+		}
+
+        function fn_addNewElement() {
+
+            let cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad"];
+
+            let ul = document.getElementById("citiesList");
+
+            ul.innerHTML = "";   
+
+            for (let city of cities) {
+
+                let li = document.createElement("li");
+                li.textContent = city;
+                ul.appendChild(li);
+
+            }
+        }
+
+        function fn_RemoveElement() {
+
+            let ul = document.getElementById("citiesList");
+
+            if (ul.lastElementChild) {
+                ul.removeChild(ul.lastElementChild);
+            }
+
+        }
+
+	</script>
+</body>
+
+</html>

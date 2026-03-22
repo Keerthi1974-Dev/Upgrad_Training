@@ -1,0 +1,165 @@
+---------DAY-15 HANDS ON----------------------------------
+
+CREATE DATABASE EcommDb;
+
+USE EcommDb;
+
+-----CREATEING Tables-------
+-----Categories table---------
+
+CREATE TABLE categories (
+    category_id INT PRIMARY KEY,
+    category_name VARCHAR(50)
+);
+
+------Brands Table--------
+CREATE TABLE brands (
+    brand_id INT PRIMARY KEY,
+    brand_name VARCHAR(50)
+)
+------product Table--------
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100),
+    category_id INT,
+    brand_id INT,
+    price DECIMAL(10,2),
+    FOREIGN KEY (category_id) REFERENCES categories(category_id),
+    FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+);
+
+------------Customers Table-----------------
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    city VARCHAR(50)
+);
+-------------Stores Table-----------------
+
+CREATE TABLE stores (
+    store_id INT PRIMARY KEY,
+    store_name VARCHAR(50),
+    city VARCHAR(50)
+);
+-----------------------Inserting Data into categories table---------------------
+
+INSERT INTO categories VALUES
+(1,'Sunscreen'),
+(2,'Moisturizer'),
+(3,'Face Wash'),
+(4,'Serum'),
+(5,'Body Lotion');
+
+----------------------inserting data into brands --------------------------
+INSERT INTO brands VALUES
+(1,'Neutrogena'),
+(2,'Lakme'),
+(3,'Lotus'),
+(4,'Minimalist'),
+(5,'Nivea');
+
+-------------------inserting data into products--------------------
+INSERT INTO products VALUES
+(1,'Ultra Sheer Sunscreen',1,1,499),
+(2,'Sun Expert SPF 50',1,2,350),
+(3,'Safe Sun UV Screen',1,3,420),
+(4,'Vitamin C Sunscreen',1,4,550),
+(5,'Protect & Moisture Sun',1,5,300);
+
+-------------------insrting data into customers-------------------
+INSERT INTO customers VALUES
+(1,'Riya','Bangalore'),
+(2,'Rahul','Hyderabad'),
+(3,'Sneha','Bangalore'),
+(4,'Arjun','Chennai'),
+(5,'Meena','Bangalore');
+
+------------------------------inserting data into stores------------
+INSERT INTO stores VALUES
+(1,'Beauty Mart','Bangalore'),
+(2,'SkinCare Hub','Hyderabad'),
+(3,'Glow Store','Chennai'),
+(4,'Cosmetic World','Mumbai'),
+(5,'Daily Care','Delhi');
+--------------------------retrieving all products with their brand and category names-----------------
+
+SELECT 
+p.product_name,
+b.brand_name,
+c.category_name,
+p.price
+FROM products p
+JOIN brands b ON p.brand_id = b.brand_id
+JOIN categories c ON p.category_id = c.category_id;
+
+--------------------------------specific city---------------------
+
+SELECT *
+FROM customers
+WHERE city = 'Bangalore';
+
+-------------------------- Displaying total no.of products in each category-----------------------
+
+SELECT 
+c.category_name,
+COUNT(p.product_id) AS total_products
+FROM categories c
+LEFT JOIN products p 
+ON c.category_id = p.category_id
+GROUP BY c.category_name;
+
+-----------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+------------------------2.creating view for product table-------------------
+CREATE VIEW vw_product_details AS
+SELECT 
+    p.product_name,
+    b.brand_name,
+    c.category_name,
+    p.price AS list_price
+FROM products p
+JOIN brands b 
+ON p.brand_id = b.brand_id
+JOIN categories c 
+ON p.category_id = c.category_id;
+
+--------------------------------------------
+SELECT * FROM vw_product_details;
+
+-------------------creating view for order_details--------------------------
+
+CREATE VIEW vw_order_details AS
+SELECT 
+c.customer_name,
+s.store_name,
+c.city
+FROM customers c
+JOIN stores s
+ON c.city = s.city;
+
+----------------------------------------------------------
+SELECT * FROM vw_order_details;
+
+----------------------------------------------------------
+----------------------craeting indexees on foreign keys-----------------
+
+CREATE INDEX idx_products_category
+ON products(category_id);
+
+CREATE INDEX idx_products_brand
+ON products(brand_id);
+
+-----------------------------Testing the performance-------------------------------
+
+SELECT 
+p.product_name,
+b.brand_name,
+c.category_name,
+p.price
+FROM products p
+JOIN brands b 
+ON p.brand_id = b.brand_id
+JOIN categories c
+ON p.category_id = c.category_id;

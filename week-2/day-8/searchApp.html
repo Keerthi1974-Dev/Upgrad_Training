@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Product Search</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        input {
+            padding: 8px;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .no-result {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product Search</h2>
+
+    <input type="text" id="searchBox" placeholder="Search products..." />
+
+    <ul id="productList"></ul>
+
+    <script>
+       
+        var products = [
+            "Laptop",
+            "Mobile",
+            "Headphones",
+            "Keyboard",
+            "Mouse",
+            "Charger",
+            "Smart Watch"
+        ];
+
+        var searchBox = document.getElementById("searchBox");
+        var productList = document.getElementById("productList");
+
+       
+        function renderProducts(list) {
+            productList.innerHTML = "";
+
+            if (list.length === 0) {
+                productList.innerHTML = "<p class='no-result'>No Results Found</p>";
+                return;
+            }
+
+            list.forEach(function(product) {
+                var li = document.createElement("li");
+                li.textContent = product;
+                productList.appendChild(li);
+            });
+        }
+
+       
+        function filterProducts(keyword) {
+            return products.filter(function(product) {
+                return product.toLowerCase().includes(keyword.toLowerCase());
+            });
+        }
+
+       
+        renderProducts(products);
+
+       
+        searchBox.addEventListener("input", function() {
+            var value = searchBox.value;
+            var filtered = filterProducts(value);
+            renderProducts(filtered);
+        });
+
+        
+        productList.addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                alert("You selected: " + event.target.textContent);
+            }
+        });
+
+    </script>
+
+</body>
+</html>
