@@ -1,0 +1,44 @@
+using System;
+using System.IO;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string path = "log.txt";
+
+        try
+        {
+            Console.WriteLine("Enter messages to store in file");
+            Console.WriteLine("Type 'exit' to stop");
+
+            while (true)
+            {
+                Console.Write("Message: ");
+                string msg = Console.ReadLine();
+
+                if (msg == "exit")
+                {
+                    break;
+                }
+
+                byte[] bytes = Encoding.UTF8.GetBytes(msg + "\n");
+
+               
+                FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
+
+               
+                fs.Write(bytes, 0, bytes.Length);
+
+                fs.Close(); 
+
+                Console.WriteLine("Message saved successfully");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error occurred: " + e.Message);
+        }
+    }
+}
