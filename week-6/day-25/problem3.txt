@@ -1,0 +1,40 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Starting reports...\n");
+
+        Task t1 = Task.Run(() => GenerateSalesReport());
+        Task t2 = Task.Run(() => GenerateInventoryReport());
+        Task t3 = Task.Run(() => GenerateCustomerReport());
+
+        Task.WaitAll(t1, t2, t3);
+
+        Console.WriteLine("\nAll reports completed");
+    }
+
+    static void GenerateSalesReport()
+    {
+        Console.WriteLine("Sales report started");
+        Thread.Sleep(2000);
+        Console.WriteLine("Sales report finished");
+    }
+
+    static void GenerateInventoryReport()
+    {
+        Console.WriteLine("Inventory report started");
+        Thread.Sleep(3000);
+        Console.WriteLine("Inventory report finished");
+    }
+
+    static void GenerateCustomerReport()
+    {
+        Console.WriteLine("Customer report started");
+        Thread.Sleep(1500);
+        Console.WriteLine("Customer report finished");
+    }
+}

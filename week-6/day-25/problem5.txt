@@ -1,0 +1,96 @@
+using System;
+using System.Diagnostics;
+using System.IO;
+
+namespace ConsoleApp27
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            // Define log file path
+            string logFilePath = "OrderTraceLog.txt";
+
+            // Create TextWriterTraceListener
+            TextWriterTraceListener textListener = new TextWriterTraceListener(logFilePath);
+
+            // Add listener to Trace
+            Trace.Listeners.Add(textListener);
+
+            // Auto flush
+            Trace.AutoFlush = true;
+
+            Trace.WriteLine("Application execution started.");
+
+            try
+            {
+                Console.WriteLine("Order Processing Started...\n");
+
+                ValidateOrder();
+                ProcessPayment();
+                UpdateInventory();
+                GenerateInvoice();
+
+                Console.WriteLine("\nOrder processed successfully.");
+
+                Trace.TraceInformation($"Message: Order processed successfully. Date-Time : {DateTime.Now}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception Message: " + ex.Message);
+
+                Trace.TraceError($"[Exception] Message: {ex.Message}. Date-Time : {DateTime.Now}");
+            }
+            finally
+            {
+                Console.WriteLine("Order processing attempt completed.");
+                Trace.TraceInformation("Order processing attempt completed.");
+            }
+
+            Trace.WriteLine("Application execution completed.");
+
+            Trace.Flush();
+            Trace.Close();
+
+            Console.ReadLine();
+        }
+
+        static void ValidateOrder()
+        {
+            Trace.TraceInformation("Step 1: Validating Order...");
+            Console.WriteLine("Validating Order...");
+        }
+
+        static void ProcessPayment()
+        {
+            Trace.TraceInformation("Step 2: Processing Payment...");
+            Console.WriteLine("Processing Payment...");
+
+            bool paymentSuccess = true;
+
+            if (paymentSuccess == false)
+            {
+                Trace.WriteLine("Payment failed!");
+                throw new Exception("Payment Failed");
+            }
+        }
+
+        static void UpdateInventory()
+        {
+            Trace.TraceInformation("Step 3: Updating Inventory...");
+            Console.WriteLine("Updating Inventory...");
+        }
+
+        static void GenerateInvoice()
+        {
+            Trace.TraceInformation("Step 4: Generating Invoice...");
+            Console.WriteLine("Generating Invoice...");
+
+
+
+
+        }
+    }
+}

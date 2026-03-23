@@ -1,0 +1,22 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter Product Name: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Enter Price: ");
+        double price = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter Discount %: ");
+        double discount = double.Parse(Console.ReadLine());
+
+        
+        double finalPrice = price - (price * discount / 100);
+
+        Console.WriteLine("Product: " + name);
+        Console.WriteLine("Final Price: " + finalPrice);
+    }
+}

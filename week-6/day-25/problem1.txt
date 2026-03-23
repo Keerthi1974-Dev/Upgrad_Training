@@ -1,0 +1,29 @@
+using System;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        Console.WriteLine("Logging started...");
+
+        
+        Task t1 = WriteLogAsync("Event 1 completed");
+        Task t2 = WriteLogAsync("Event 2 completed");
+        Task t3 = WriteLogAsync("Event 3 completed");
+
+        Console.WriteLine("Main thread is running...");
+
+        await t1;
+        await t2;
+        await t3;
+
+        Console.WriteLine("Logging finished");
+    }
+
+    static async Task WriteLogAsync(string message)
+    {
+        await Task.Delay(2000); 
+        Console.WriteLine("Log: " + message);
+    }
+}
