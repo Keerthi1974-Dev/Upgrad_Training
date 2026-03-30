@@ -1,0 +1,59 @@
+﻿@using WebApplication1.Models
+@model List<Employee> 
+
+<h1 class="display-5">Employee Controller - Index</h1>
+
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+<hr/>
+
+<a href="Emp/Search">Search</a> |
+<a href="Emp/Search?job=Manager">Search By Job</a> |
+<a href="Emp/Search?deptno=20">Search By Deptno</a> |
+<a href="Emp/Search?job=Developer&deptno=20">Search By Deptno</a> |
+
+<hr/>
+
+
+<h2>Employee Details</h2>
+
+<table border="3">
+    <thead>
+        <tr>
+            <th>Emp No</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Dept No</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Empno</td>
+                <td>@emp.Ename</td>
+                <td>@emp.Job</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Deptno</td>
+
+                <td>
+                    @* <a asp-action="Create" class="btn btn-primary"> Create</a> *@
+
+                    <a asp-controller="Emp"
+                       asp-action="Details"
+                       asp-route-id="@emp.Empno">Details</a> |
+
+                    <a asp-controller="Emp"
+                       asp-action="Edit"
+                       asp-route-id="@emp.Empno">Edit</a> |
+
+                    <a asp-controller="Emp"
+                       asp-action="Delete"
+                       asp-route-id="@emp.Empno">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
