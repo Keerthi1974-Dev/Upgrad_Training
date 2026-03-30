@@ -1,0 +1,5 @@
+{
+	"ConnectionStrings": {
+		"DefaultConnection": "Server=LAPTOP-C3A9ELOU\\SQLEXPRESS;Database=ADONET;Trusted_Connection=True;TrustServerCertificate=True;"
+	}
+}
