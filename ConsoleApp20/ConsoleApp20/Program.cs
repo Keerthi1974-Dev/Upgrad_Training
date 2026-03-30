@@ -1,0 +1,78 @@
+﻿using System;
+
+namespace ConsoleApp20
+{
+    // Records (outside class)
+    public record Book(string Title, double Price);
+    public record Address(string City, string Country);
+    public record Employee(string Name, Address Address);
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // ===== EVEN ODD SUM =====
+            Console.Write("Enter number of Elements: ");
+
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                ar[i] = int.Parse(Console.ReadLine());
+            }
+
+            int[] res = GetEvenOddTotal(ar);
+
+            Console.WriteLine("Even Numbers Sum: " + res[0]);
+            Console.WriteLine("Odd Numbers Sum: " + res[1]);
+
+            // ===== RECORD EXAMPLE =====
+            Console.WriteLine("\n=== Simple Record Comparison ===");
+
+            var b1 = new Book("C# Basics", 499);
+            var b2 = new Book("C# Basics", 499);
+
+            Console.WriteLine($"Books equal: {b1 == b2}");
+            Console.WriteLine($"Title : {b1.Title}, Price : {b1.Price}");
+
+            Console.WriteLine("\n=== Using 'with' Keyword ===");
+
+            var b3 = b1 with { Price = 599 };
+            Console.WriteLine(b1);
+            Console.WriteLine(b3);
+
+            Console.WriteLine("\n=== Nested Record Comparison ===");
+
+            var e1 = new Employee("Anil", new Address("Hyderabad", "India"));
+            var e2 = new Employee("Anil", new Address("Hyderabad", "India"));
+
+            Console.WriteLine($"Employees equal: {e1 == e2}");
+
+            Console.WriteLine("\n=== Deconstruction ===");
+
+            var (name, price) = b1;
+            Console.WriteLine($"Name: {name}, Price: {price}");
+        }
+
+        static int[] GetEvenOddTotal(int[] ar)
+        {
+            int even = 0;
+            int odd = 0;
+
+            foreach (int j in ar)
+            {
+                if (j % 2 == 0)
+                {
+                    even += j;
+                }
+                else
+                {
+                    odd += j;
+                }
+            }
+
+            return new int[] { even, odd };
+        }
+    }
+}

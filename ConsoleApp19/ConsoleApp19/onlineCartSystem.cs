@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp19
+{
+    public class Product
+    {
+        public string Name { get; set; }
+
+        private double _price;
+
+        public double Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
+
+        public virtual double CalculateDiscount()
+        {
+            if (_price < 0)
+                return -1;
+
+            return _price;
+        }
+    }
+
+    // Electronics Class
+    public class Electronics : Product
+    {
+        public override double CalculateDiscount()
+        {
+            if (Price < 0)
+                return -1;
+
+            return Price * 0.95; // 5% discount
+        }
+    }
+
+    // Clothing Class
+    public class Clothing : Product
+    {
+        public override double CalculateDiscount()
+        {
+            if (Price < 0)
+                return -1;
+
+            return Price * 0.85; // 15% discount
+        }
+    }
+
+
+
+}

@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.Employee
+
+<h2>Create Employee</h2>
+<hr />
+
+
+<form method="post" asp-action="create">
+
+    <div class="form-group">
+        <label asp-for="Empno" class="form-label"></label>
+        <input asp-for="Empno" class="form-control" />
+        <span asp-validation-for="Empno" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Ename" class="form-label"></label>
+        <input asp-for="Ename" class="form-control" />
+        <span asp-validation-for="Ename" class="text-danger"></span>
+    </div>
+ 
+    <div class="form-group">
+        <label asp-for="Job"></label>
+        <input asp-for="Job" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Deptno"></label>
+        <input asp-for="Deptno" class="form-control" />
+        <span asp-validation-for="Deptno" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    
+</form>
+
+
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+
+ 
+@section Scripts {
+    <!-- The following line include jQuery validation + Unobtrusive scripts to perform validations -->
+    <partial name="_ValidationScriptsPartial" />
+}
