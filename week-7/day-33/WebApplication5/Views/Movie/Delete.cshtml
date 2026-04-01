@@ -1,0 +1,12 @@
+﻿@model WebApplication5.Models.Movie
+
+<h2>Delete Movie</h2>
+
+<p>Are you sure you want to delete <b>@Model.Title</b>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Delete</button>
+</form>
+
+<a asp-action="Index">Cancel</a>

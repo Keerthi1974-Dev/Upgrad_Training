@@ -1,0 +1,51 @@
+﻿@model WebApplication6.Models.Movie
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header text-center bg-primary text-white">
+                    <h3>Add Movie</h3>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter movie title" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Genre</label>
+                            <input asp-for="Genre" class="form-control" placeholder="Enter genre" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Release Date</label>
+                            <input type="date" asp-for="ReleaseDate" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input asp-for="Price" class="form-control" placeholder="Enter price" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <input asp-for="Rating" class="form-control" placeholder="Enter rating" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

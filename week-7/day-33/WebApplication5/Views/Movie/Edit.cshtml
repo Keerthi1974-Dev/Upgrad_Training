@@ -1,0 +1,27 @@
+﻿@model WebApplication5.Models.Movie
+
+<h2>Edit Movie</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <label>Title</label>
+    <input asp-for="Title" /><br />
+
+    <label>Genre</label>
+    <input asp-for="Genre" /><br />
+
+    <label>Release Date</label>
+    <input asp-for="ReleaseDate" type="date" /><br />
+
+    <label>Price</label>
+    <input asp-for="Price" /><br />
+
+    <label>Rating</label>
+    <input asp-for="Rating" /><br />
+
+    <button type="submit">Update</button>
+</form>
+
+<a asp-action="Index">Back</a>

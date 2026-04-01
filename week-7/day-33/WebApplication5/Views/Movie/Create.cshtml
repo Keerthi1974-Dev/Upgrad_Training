@@ -1,0 +1,25 @@
+﻿@model WebApplication5.Models.Movie
+
+<h2>Add Movie</h2>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="Title"></label>
+    <input asp-for="Title" /><br />
+
+    <label asp-for="Genre"></label>
+    <input asp-for="Genre" /><br />
+
+    <label asp-for="ReleaseDate"></label>
+    <input asp-for="ReleaseDate" type="date" /><br />
+
+    <label asp-for="Price"></label>
+    <input asp-for="Price" /><br />
+
+    <label asp-for="Rating"></label>
+    <input asp-for="Rating" /><br />
+
+    <button type="submit">Save</button>
+</form>
