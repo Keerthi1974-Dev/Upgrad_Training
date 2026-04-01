@@ -1,0 +1,20 @@
+﻿@model WebApplication4.Models.ContactInfo
+
+<div class="container mt-5">
+    <div class="card shadow p-4 col-md-6 mx-auto">
+
+        <h3 class="text-center mb-4">Contact Details</h3>
+
+        <p><b>ID:</b> @Model.ContactId</p>
+        <p><b>Name:</b> @Model.FirstName @Model.LastName</p>
+        <p><b>Company:</b> @Model.CompanyName</p>
+        <p><b>Email:</b> @Model.EmailId</p>
+        <p><b>Mobile:</b> @Model.MobileNo</p>
+        <p><b>Designation:</b> @Model.Designation</p>
+
+        <div class="text-center mt-3">
+            <a asp-action="ShowContacts" class="btn btn-primary">Back</a>
+        </div>
+
+    </div>
+</div>

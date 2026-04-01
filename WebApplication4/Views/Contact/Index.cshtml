@@ -1,0 +1,71 @@
+﻿@model List<WebApplication4.Models.ContactInfo>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">Contact List</h2>
+
+    <!-- Top Section -->
+    <div class="d-flex justify-content-between mb-3">
+
+        <!-- Add Button -->
+        <a asp-action="AddContact" class="btn btn-primary">
+            Add Contact
+        </a>
+
+        <!-- Search by ID -->
+        <form asp-action="GetContactById" method="get" class="d-flex">
+            <input type="number" name="id" class="form-control me-2"
+                   placeholder="Enter ID" required />
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+
+    </div>
+
+    <!-- Table -->
+    <table class="table table-bordered table-striped text-center">
+
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Designation</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="7">No Contacts Available</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ContactId</td>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.EmailId</td>
+                        <td>@item.MobileNo</td>
+                        <td>@item.Designation</td>
+                        <td>
+                            <a asp-action="GetContactById"
+                                   asp-route-id="@item.ContactId"
+                                   class="btn btn-info btn-sm">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+
+</div>
