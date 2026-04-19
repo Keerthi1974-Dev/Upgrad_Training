@@ -1,0 +1,125 @@
+a. What are HTTP Status Codes? Different Categories
+
+HTTP status codes are standard response codes returned by a server to indicate the result of a client’s request.
+
+They are grouped into 5 categories:
+
+1xx – Informational
+Indicates request received and processing continues
+Example:
+100 Continue
+2xx – Success
+Request was successfully received, understood, and processed
+Examples:
+200 OK
+201 Created
+204 No Content
+3xx – Redirection
+Further action needed to complete the request
+Examples:
+301 Moved Permanently
+302 Found
+304 Not Modified
+4xx – Client Error
+Request contains bad syntax or cannot be fulfilled
+Examples:
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+5xx – Server Error
+Server failed to fulfill a valid request
+Examples:
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+b. Important Status Codes with ASP.NET Core Methods
+
+In ASP.NET Core, status codes are returned using helper methods from ControllerBase.
+
+Status Code	Description	ASP.NET Core Method	Return Type
+200	OK (Success)	Ok()	OkResult / OkObjectResult
+201	Created	Created() / CreatedAtAction()	CreatedResult
+204	No Content	NoContent()	NoContentResult
+400	Bad Request	BadRequest()	BadRequestResult
+401	Unauthorized	Unauthorized()	UnauthorizedResult
+403	Forbidden	Forbid()	ForbidResult
+404	Not Found	NotFound()	NotFoundResult
+500	Internal Server Error	StatusCode(500)	ObjectResult
+Examples in ASP.NET Core
+// 200 OK
+return Ok();
+
+// 200 OK with data
+return Ok(data);
+
+// 201 Created
+return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+
+// 204 No Content
+return NoContent();
+
+// 400 Bad Request
+return BadRequest("Invalid input");
+
+// 404 Not Found
+return NotFound();
+
+// 500 Internal Server Error
+return StatusCode(500, "Server error");
+c. What is Minimal API?
+
+Minimal API is a feature introduced in ASP.NET Core 6 that allows developers to build APIs with less code and minimal setup, without using controllers.
+
+Key Features
+No need for Controllers
+Uses simple route definitions
+Lightweight and faster development
+Ideal for microservices and small APIs
+Basic Example
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
+Example with HTTP Methods
+app.MapGet("/users", () => users);
+
+app.MapPost("/users", (User user) =>
+{
+    users.Add(user);
+    return Results.Created($"/users/{user.Id}", user);
+});
+
+app.MapPut("/users/{id}", (int id, User updatedUser) =>
+{
+    var user = users.FirstOrDefault(u => u.Id == id);
+    if (user == null) return Results.NotFound();
+
+    user.Name = updatedUser.Name;
+    return Results.Ok(user);
+});
+
+app.MapDelete("/users/{id}", (int id) =>
+{
+    var user = users.FirstOrDefault(u => u.Id == id);
+    if (user == null) return Results.NotFound();
+
+    users.Remove(user);
+    return Results.NoContent();
+});
+
+
+Advantages
+Less boilerplate code
+Easy to learn and use
+Faster API development
+Good for small and simple applications
+When to Use
+Microservices
+Simple REST APIs
+Prototyping
+When NOT to Use
+Large enterprise applications
+Complex business logic (better with Controllers)
