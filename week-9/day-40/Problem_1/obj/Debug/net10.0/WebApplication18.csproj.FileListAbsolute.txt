@@ -1,0 +1,9 @@
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.AssemblyInfo.cs
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\source\repos\WebApplication18\WebApplication18\obj\Debug\net10.0\WebApplication18.sourcelink.json
