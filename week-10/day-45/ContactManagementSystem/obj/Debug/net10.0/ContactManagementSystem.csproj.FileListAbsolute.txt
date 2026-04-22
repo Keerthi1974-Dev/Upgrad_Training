@@ -1,0 +1,15 @@
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\bin\Debug\net10.0\ContactManagementSystem.exe
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\bin\Debug\net10.0\ContactManagementSystem.deps.json
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\bin\Debug\net10.0\ContactManagementSystem.runtimeconfig.json
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\bin\Debug\net10.0\ContactManagementSystem.dll
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\bin\Debug\net10.0\ContactManagementSystem.pdb
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.AssemblyInfo.cs
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.sourcelink.json
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.dll
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\refint\ContactManagementSystem.dll
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.pdb
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ContactManagementSystem.genruntimeconfig.cache
+C:\Users\HP\source\repos\ContactManagementSystem\ContactManagementSystem\obj\Debug\net10.0\ref\ContactManagementSystem.dll
